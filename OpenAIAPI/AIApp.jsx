@@ -3,7 +3,7 @@ import {useState} from 'react';
 import reactLogo from './Assets/react.svg';
 import {Mailto} from "./Mail.jsx";
 
-const API_KEY = 'AIzaSyBLi_gmWJ6G7TxqAjNmuobTRFEsOJ-0zeM';
+const API_KEY = 'YOUR API_KEY';
 
 export function AIApp() {
     const [tweet, setTweet] = useState('')
@@ -50,7 +50,7 @@ export function AIApp() {
             let chatHistory = []
             chatHistory.push({role: 'user', parts: [{text: prompt}]})
             const payload = {contents: chatHistory}
-            const api_url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`
+            const api_url = `url ${API_KEY}`
             const response = await fetch(api_url, {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
