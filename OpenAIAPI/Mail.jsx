@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 export function Mailto(props) {
     const [emailAddress, setEmailAddress] = useState('');
@@ -19,7 +19,7 @@ export function Mailto(props) {
         setError('');
         const encodedTo = encodeURIComponent(trimmedEmail);
         const encodedSubject = encodeURIComponent(emailSubject);
-        const encodedBody = encodeURIComponent(`${body.trim()}\n--${props.sentiment}`)
+        const encodedBody = encodeURIComponent(`${body.trim()}\n--${props.sentiment} \n${props.coordinates !== '' ? props.getMapsLink : ''}`);
         const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodedTo}&su=${encodedSubject}&body=${encodedBody}`;
         window.open(gmailUrl, '_blank', 'width=800,height=600,noopener,noreferrer');
     };
